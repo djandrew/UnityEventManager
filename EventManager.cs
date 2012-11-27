@@ -248,7 +248,7 @@ public class EventManager : MonoBehaviour {
 			Debug.Log("Event Manager: Event " + eventType + " dispatched to " + listenerList.Count + ((listenerList.Count == 1) ? " listener." : " listeners."));
 		}
 		foreach (EventListener callback in listenerList) {
-			if (callback.listener && callback.listener.active) {
+			if (callback.listener && callback.listener.activeSelf) {
 				callback.listener.SendMessage(callback.function, evt, SendMessageOptions.DontRequireReceiver);
 			}
 		}
